@@ -1,4 +1,4 @@
-import Game
+from game import Game
 
 logo = """
 .------.            _     _            _    _            _    
@@ -10,11 +10,11 @@ logo = """
       |  \/ K|                            _/ |                
       `------'                           |__/           
 """
-def main():
+def Main():
     print(logo)
     play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
     while play.lower() == 'y':
-        game = Game.Game()
+        game = Game()
         game.initial_deal()
         game.deal_dealer_cards()
         deal = 'y'
@@ -27,4 +27,4 @@ def main():
     print("Thank you for playing! Bye.")
 
 if __name__ == '__main__':
-    main()
+    Main()

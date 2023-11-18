@@ -109,7 +109,3 @@ class Game:
             print("Aright, you win!")
         else:
             print("Dealer wins, you lose loser!")
-
-
-if __name__ == '__main__':
-    game = Game()
