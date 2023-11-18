@@ -26,18 +26,6 @@
 
 # TODO: make A equal to 1 or 11 according to the total points
 import random
-logo = """
-.------.            _     _            _    _            _    
-|A_  _ |.          | |   | |          | |  (_)          | |   
-|( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
-| \  /|K /\  |     | '_ \| |/ _` |/ __| |/ / |/ _` |/ __| |/ /
-|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   < 
-`-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\\
-      |  \/ K|                            _/ |                
-      `------'                           |__/           
-      
-
-"""
 
 class Game:
     player_points = 0
@@ -80,7 +68,7 @@ class Game:
         #     if 'A' in self.player_hand:
         #             self.player_points -= 10
         if deal == 'y' and self.rounds_played <= 4:
-            if self.dealer_points < 21 or self.player_points < 21:
+            if self.player_points < 21:
                 card = random.choice(list(self.deck.keys()))
                 self.player_hand.append(card)
                 self.player_points += self.deck[card]
@@ -122,17 +110,6 @@ class Game:
         else:
             print("Dealer wins, you lose loser!")
 
-print(logo)
-play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
-while play == 'y':
-    game = Game()
-    game.initial_deal()
-    game.deal_dealer_cards()
-    deal = 'y'
-    while deal == 'y':
-        deal = input("Type 'y' to get another card, type 'n' to pass: ")
-        deal = game.deal(deal)
-    game.show()
-    play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
 
-print("Thank you for playing! Bye.")
+if __name__ == '__main__':
+    game = Game()
