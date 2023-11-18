@@ -24,6 +24,7 @@
 #Then try out the completed Blackjack project here: 
 #   http://blackjack-final.appbrewery.repl.run
 
+# TODO: make A equal to 1 or 11 according to the total points
 import random
 logo = """
 .------.            _     _            _    _            _    
@@ -89,11 +90,19 @@ class Game:
             self.print_status()
         return deal
     
-    def dealer_cards(self):
+    def deal_dealer_cards(self):
         while self.dealer_points < 17:
             card = random.choice(list(self.deck.keys()))
             self.dealer_hand.append(card)
             self.dealer_points += self.deck[card]
+
+    def evaluate_A(self):
+        if self.dealer_points > 21:
+            if 'A' in self.dealer_hand:
+                ...
+        if self.player_points > 21:
+            if 'A' in self.player_hand:
+                ...
 
     def show(self):
         print("Your hand: " + str(self.player_hand))
@@ -118,7 +127,7 @@ play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
 while play == 'y':
     game = Game()
     game.initial_deal()
-    game.dealer_cards()
+    game.deal_dealer_cards()
     deal = 'y'
     while deal == 'y':
         deal = input("Type 'y' to get another card, type 'n' to pass: ")
