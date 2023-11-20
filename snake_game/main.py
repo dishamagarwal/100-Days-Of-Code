@@ -6,7 +6,7 @@ class Main():
     # initial setup
     screen = GameScreen()
     snake = Snake()
-    snake.add_segment(0, 0)
+    screen.listen_keywords(snake)
     snake.add_segment(-20, 0)
     snake.add_segment(-40, 0)
     screen.update_screen(snake)
