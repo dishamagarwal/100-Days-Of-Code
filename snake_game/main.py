@@ -1,6 +1,6 @@
-from turtle import Turtle
 from snake import Snake
 from game_screen import GameScreen
+from food import Food
 
 class Main():
     # initial setup
@@ -10,6 +10,7 @@ class Main():
     snake.add_segment(-20, 0)
     snake.add_segment(-40, 0)
     screen.update_screen(snake)
+    food = Food()
     screen.click_to_exit()
 
 if __name__ == '__main__':
