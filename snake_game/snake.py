@@ -9,13 +9,21 @@ LEFT = 180
 class Snake:
     def __init__(self):
         self.snake_body = []
-        self.add_segment(0, 0)
+        self.setup(0, 0)
         self.head = self.snake_body[0]
     
-    def add_segment(self, x, y):
+    def setup(self, x, y):
         seg = Turtle("square")
         seg.penup()
         seg.color("white")
+        seg.goto(x, y)
+        self.snake_body.append(seg)
+
+    def add_segment(self):
+        seg = Turtle("square")
+        seg.penup()
+        seg.color("white")
+        x, y = self.snake_body[-1].pos()
         seg.goto(x, y)
         self.snake_body.append(seg)
 
@@ -44,7 +52,3 @@ class Snake:
     def left(self):
         if self.head.heading() != RIGHT:
             self.head.setheading(LEFT)
-
-    # def update_food(self, x, y):
-    #     self.x = x
-    #     self.y = y
