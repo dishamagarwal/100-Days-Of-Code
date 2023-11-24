@@ -18,7 +18,11 @@ class GameScreen:
                 food.generate_food()
                 score.gain_point()
                 snake.add_segment()
+            if not snake.within_bounds() or snake.collision_with_tail():
+                self.game_is_on = False
             self.screen.ontimer(lambda: self.update_screen(snake, food, score), 100)
+        else:
+            score.final_score()
 
     def click_to_exit(self):
         self.screen.exitonclick()

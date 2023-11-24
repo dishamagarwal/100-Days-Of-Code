@@ -31,11 +31,20 @@ class Snake:
         for idx in range(len(self.snake_body)-1, 0, -1):
             self.snake_body[idx].goto(self.snake_body[idx-1].xcor(), self.snake_body[idx-1].ycor())
         self.head.forward(MOVE_DIST)
-        
-        # check if the snake is within bounds
-        pos = self.head.position
-        # if pos[0] >= 300 or pos[1] >= 300 or pos[0] <= -300 or pos[1] <= -300:
-            # game over
+
+    def within_bounds(self):
+        x, y = self.head.pos()
+        if x >= 290 or x <= -290 or y >= 290 or y <= -290:
+            return False
+        return True
+    
+    def collision_with_tail(self):
+        for seg in self.snake_body:
+            if seg == self.head:
+                pass
+            elif self.head.distance(seg) < 10:
+                return True
+        return False
 
     def up(self):
         if self.head.heading() != DOWN:
