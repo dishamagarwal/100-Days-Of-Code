@@ -1,3 +1,4 @@
+
 from turtle import Screen
 
 class GameScreen:
@@ -9,11 +10,15 @@ class GameScreen:
         self.screen.tracer(0)
         self.game_is_on = True
 
-    def update_screen(self, snake):
+    def update_screen(self, snake, food, score):
         self.screen.update()
         snake.move_by_one()
         if self.game_is_on:
-            self.screen.ontimer(lambda: self.update_screen(snake), 100)
+            if snake.head.distance(food) < 15:
+                food.generate_food()
+                score += 1
+                print(score)
+            self.screen.ontimer(lambda: self.update_screen(snake, food, score), 100)
 
     def click_to_exit(self):
         self.screen.exitonclick()
