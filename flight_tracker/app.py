@@ -46,9 +46,10 @@ try:
             output += "<price unavailable>"
         print(output) 
     
-    if connection:
-        message = f"Emails sent today were: {emails_sent}" if emails_sent > 0 else "No emails sent today."
-        connection.sendmail(sender, sender, "Subject:Update For Flights Changed\n\n" +message)
+    # -----for testing if the email sends correctly-----
+    # if connection:
+    #     message = f"Emails sent today were: {emails_sent}" if emails_sent > 0 else "No emails sent today."
+    #     connection.sendmail(sender, sender, "Subject:Update For Flights Changed\n\n" +message)
 
 finally:
     if connection:
