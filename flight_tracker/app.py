@@ -46,7 +46,7 @@ try:
             output += "<price unavailable>"
         print(output) 
     
-    # -----for testing if the email sends correctly-----
+    # -----for testing if the email sends correctly : everyday email triggers to self-----
     # if connection:
     #     message = f"Emails sent today were: {emails_sent}" if emails_sent > 0 else "No emails sent today."
     #     connection.sendmail(sender, sender, "Subject:Update For Flights Changed\n\n" +message)
