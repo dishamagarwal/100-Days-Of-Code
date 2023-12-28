@@ -1,4 +1,4 @@
-date,origin,dest,flnum,alert_price
+date,origin,dest,flnum,alert_price, email
 2024-01-26,LGA,MCO,DL1388,85,disha.junkmail@gmail.com
 2023-12-22,JFK,JAX,DL2259,279,disha.junkmail@gmail.com
 2023-12-22,LGA,JAX,DL1054,279,disha.junkmail@gmail.com
